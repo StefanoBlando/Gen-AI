@@ -1,0 +1,32 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+diffusers>=0.21.0
+transformers>=4.30.0
+accelerate>=0.20.0
+
+# Image processing
+Pillow>=9.0.0
+opencv-python>=4.7.0
+
+# Scientific computing
+numpy>=1.24.0
+scipy>=1.10.0
+matplotlib>=3.7.0
+
+# UI and web interface
+gradio>=3.40.0
+
+# Model optimization
+xformers>=0.0.20; sys_platform != "darwin"
+safetensors>=0.3.0
+
+# Configuration and utilities
+PyYAML>=6.0
+requests>=2.28.0
+
+# Development and testing (optional)
+pytest>=7.0.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
