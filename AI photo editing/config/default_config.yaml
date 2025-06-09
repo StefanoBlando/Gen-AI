@@ -1,0 +1,85 @@
+# Default configuration for AI Photo Editor
+
+# Model configurations
+models:
+  sam:
+    checkpoint: "facebook/sam-vit-base"
+    device: "auto"  # auto, cuda, cpu
+    torch_dtype: "float16"  # float16, float32
+    cache_dir: null
+  
+  inpainting:
+    checkpoint: "diffusers/stable-diffusion-xl-1.0-inpainting-0.1"
+    fallback_checkpoint: "runwayml/stable-diffusion-inpainting"
+    device: "auto"
+    torch_dtype: "float16"
+    use_safetensors: true
+    variant: "fp16"
+    cache_dir: null
+
+# Generation parameters
+generation:
+  guidance_scale: 7.5
+  num_inference_steps: 20
+  strength: 0.99
+  negative_prompt: "blurry, low quality, distortion, artifacts, deformed"
+  scheduler: "default"  # default, ddim, ddpm, euler
+
+# Performance optimizations
+performance:
+  mixed_precision: true
+  enable_cpu_offload: true
+  enable_xformers: true
+  enable_vae_slicing: true
+  enable_attention_slicing: true
+  benchmark_mode: true
+  memory_tracking: true
+  batch_size: 1
+
+# SAM-specific settings
+sam:
+  confidence_threshold: 0.5
+  mask_selection: "best"  # best, largest, all
+  post_process: true
+  return_logits: false
+
+# UI configuration
+ui:
+  title: "AI Photo Editor"
+  description: "Edit photos with AI-powered segmentation and inpainting"
+  theme: "default"
+  share: false
+  server_name: "127.0.0.1"
+  server_port: 7860
+  debug: false
+  show_api: true
+  max_file_size: "50mb"
+  
+# Logging configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: null  # null for console only, or path to log file
+
+# Paths and directories
+paths:
+  output_dir: "outputs"
+  temp_dir: "temp"
+  model_cache: null  # null for default cache location
+  config_dir: "config"
+
+# Advanced settings
+advanced:
+  seed: null  # null for random, or integer for reproducible results
+  max_image_size: 1024
+  min_image_size: 256
+  supported_formats: ["jpg", "jpeg", "png", "bmp", "tiff"]
+  cleanup_temp: true
+  save_intermediate: false
+
+# Experimental features
+experimental:
+  iterative_refinement: true
+  batch_processing: false
+  parameter_study: false
+  statistical_analysis: false
